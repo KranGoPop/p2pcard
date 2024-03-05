@@ -1,0 +1,15 @@
+@use "src/colors";
+@use "src/sizes";
+
+.cont {
+  display: flex;
+  align-items: center;
+
+  &>div {
+    margin-right: 4px;
+  }
+
+  &>div:last-child {
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,10 @@
+@use "src/colors";
+@use "src/sizes";
+
+.cont {
+  width: 100%;
+  padding: 30px 30px;
+  display: flex;
+  justify-content: space-around;
+  box-sizing: border-box;
+}

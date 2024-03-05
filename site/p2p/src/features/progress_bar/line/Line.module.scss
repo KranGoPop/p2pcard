@@ -1,0 +1,34 @@
+@use "src/colors";
+@use "src/sizes";
+
+$width: 80px;
+$height: 5px;
+$border-radius: 3px;
+
+.cont {
+  width: $width;
+  height: $height;
+  overflow: hidden;
+  border-radius: $border-radius;
+  position: relative;
+  background-color: colors.$block-bg;
+}
+
+.front, .frontActive {
+  height: $height;
+  position: absolute;
+  top: 0;
+  border-radius: $border-radius;
+  transition: sizes.$prog-timing all cubic-bezier(.37,.64,.25,.99);
+  background-color: colors.$purpule;
+}
+
+.front {
+  width: 2 * $border-radius;
+  left: -2.2 * $border-radius;
+}
+
+.frontActive {
+  width: $width;
+  left: 0;
+}

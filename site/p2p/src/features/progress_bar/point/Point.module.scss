@@ -1,0 +1,61 @@
+@use "src/colors";
+@use "src/sizes";
+
+$size: 40px;
+$delay-shrink: 0.5;
+
+.cont {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background-color: colors.$block-bg;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  position: relative;
+  overflow: hidden;
+}
+
+.front, .frontActive, .frontFail {
+  position: absolute;
+  top: 0;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  transition: sizes.$prog-timing all cubic-bezier(.37,.64,.25,.99) $delay-shrink * sizes.$prog-timing;
+}
+
+.front {
+  left: -1.2 * $size;
+  background-color: colors.$purpule;
+}
+
+.frontActive {
+  left: 0;
+  background-color: colors.$purpule;
+}
+
+.frontFail {
+  background-color: colors.$red;
+}
+
+.img, .imgActive {
+  $shrink: 0.5;
+  width: $shrink * $size;
+  height: $shrink * $size;
+  transition: sizes.$prog-timing all cubic-bezier(.37,.64,.25,.99) $delay-shrink * sizes.$prog-timing;
+  z-index: 3;
+
+  &>* {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.img {
+  color: colors.$img-color-disactive;
+}
+
+.imgActive {
+  color: colors.$block-bg;
+}
