@@ -1,0 +1,25 @@
+@use "src/colors";
+@use "src/sizes";
+
+.cont {
+  width: 100%;
+  padding: 15px 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  border-radius: sizes.$border-radius;
+  background-color: colors.$block-bg;
+  box-shadow: 0 2px 13px 0 rgba(2,2,3,.07);
+}
+
+.text {
+  color: colors.$grey;
+  font-weight: 400;
+  font-size: sizes.$fs-norm;
+}
+
+.time {
+  color: colors.$black;
+  font-weight: 400;
+  font-size: sizes.$fs-norm;
+}

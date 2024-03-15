@@ -1,0 +1,80 @@
+@use "src/colors";
+@use "src/sizes";
+@use "sass:math";
+
+$padding: 10px;
+$padding-small: 12px;
+
+.cont {
+  width: 100%;
+  display: flex;
+}
+
+.item {
+  width: math.div(100%, 3);
+  box-sizing: border-box;
+  padding: 2 * $padding 0;
+  background-color: colors.$block-bg;
+  border-radius: sizes.$border-radius;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: 650px) {
+    padding: 2 * $padding-small 0;
+  }
+
+  @media screen and (max-width:600px) {
+    box-shadow: 0 2px 13px 0 rgba(2,2,3,.07);
+  }
+}
+
+.trigRight, .trigLeft {
+  display: block;
+  position: absolute;
+  -webkit-clip-path: polygon(0 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+  transform: rotate(-135deg);
+  border-radius: 0 0 0 1rem;
+  // border-radius: 10px;
+
+  @media screen and (max-width:600px) {
+    display: none;
+  }
+}
+
+$diam: sizes.$fs-norm + 2 * $padding;
+$trig: 2 * math.div($diam, math.sqrt(2));
+
+.trigLeft {
+  z-index: 1;
+  height: $trig;
+  width: $trig;
+  background: colors.$bg;
+  left: - math.div($trig, 2);
+}
+
+.trigRight {
+  height: 0.9 * $trig;
+  width: 0.9 * $trig;
+  z-index: 2;
+  background: colors.$block-bg;
+  right: -0.35 * $trig;
+}
+
+.text {
+  font-size: sizes.$fs-norm;
+  color: colors.$purpule;
+  font-weight: 600;
+  z-index: 3;
+  text-align: center;
+
+  @media screen and (max-width: 650px) {
+    font-size: sizes.$fs-small;
+  }
+
+  @media screen and (max-width: 500px) {
+    text-wrap: wrap;
+  }
+}

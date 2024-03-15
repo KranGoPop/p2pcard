@@ -1,0 +1,8 @@
+@use "src/colors";
+@use "src/sizes";
+
+.cont {
+  width: 100%;
+  min-height: 100vh;
+  background-color: colors.$bg;
+}

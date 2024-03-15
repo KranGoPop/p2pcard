@@ -9,6 +9,7 @@ import Error from './features/error/Error';
 import App from './App';
 import { store } from './app/store';
 import { Provider } from 'react-redux';
+import Bank from './features/bank/Bank';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,12 @@ const router = createBrowserRouter([
       {
         path: ':item/',
         element: <Main />,
+        children: [
+          {
+            path: ':bank/',
+            element: <Bank />,
+          }
+        ]
       }
     ]
   }

@@ -1,0 +1,94 @@
+@use "src/colors";
+@use "src/sizes";
+
+$gap: 7px;
+
+.cont {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.block {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.split {
+  display: flex;
+  margin-top: $gap;
+  width: 100%;
+
+  @media screen and (max-width: 650px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.left {
+  width: 40%;
+  margin-right: $gap;
+
+  &>div {
+    margin-bottom: $gap;
+  }
+
+  &>div:last-child {
+    margin-bottom: 0;
+  }
+
+  @media screen and (max-width: 650px) {
+    width: 60%;
+    margin-bottom: $gap;
+    margin-right: 0;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 80%;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
+}
+
+.right {
+  width: calc(60% - $gap);
+  padding: 30px;
+  border-radius: sizes.$border-radius;
+  background-color: colors.$block-bg;
+  box-sizing: border-box;
+  box-shadow: 0 2px 13px 0 rgba(2,2,3,.07);
+
+  & b {
+    white-space: nowrap;
+    text-wrap: nowrap;
+  }
+
+  @media screen and (max-width: 650px) {
+    width: 60%;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 80%;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
+}
+
+.btnBlock {
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  &>* {
+    margin-right: 10px;
+  }
+
+  &>*:last-child {
+    margin-right: 0;
+  }
+}

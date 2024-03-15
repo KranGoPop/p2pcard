@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { time_tinterval } from "../../const";
 
 export const methodValidate = createAsyncThunk(
   'app/validate',
@@ -16,7 +17,14 @@ export const methodValidate = createAsyncThunk(
 
 const initialState = {
   dataState: 'unknown',
-  data: {},
+  data: {
+    price: 0,
+  },
+  time: {
+    startTime: 0,
+    endTime: 0,
+    curTime: 0,
+  }
 };
 
 const appSlice = createSlice({
@@ -26,12 +34,28 @@ const appSlice = createSlice({
     setInvalid: (state) => {
       state.dataState = 'invalid';
     },
+    setAppTimeout: (state) => {
+      state.dataState = 'timeout';
+    },
+    setCurTime: (state, action) => {
+      state.time.curTime = action.payload;
+    },
+    setSuccess: (state) => {
+      state.dataState = 'success';
+    },
+    setCancel: (state) => {
+      state.dataState = 'cancel';
+    }
   },
   extraReducers: builder => {
     builder
     .addCase(methodValidate.fulfilled, (state, action) => {
       state.dataState = 'valid';
       state.data = action.payload;
+
+      state.time.startTime = Date.now();
+      state.time.endTime = time_tinterval * 60 * 1000 + state.time.startTime;
+      state.time.curTime = state.time.startTime;
     })
     .addCase(methodValidate.rejected, (state) => {
       state.dataState = 'invalid';
@@ -39,7 +63,14 @@ const appSlice = createSlice({
   }
 });
 
-export const {setInvalid} = appSlice.actions;
+export const {
+  setInvalid, 
+  setCurTime, 
+  setAppTimeout,
+  setCancel,
+  setSuccess,
+} = appSlice.actions;
 export const selectAppData = (state) => state.app.data;
-export const selectAppDateState = (state) => state.app.dataState;
+export const selectAppDataState = (state) => state.app.dataState;
+export const selectAppTime = (state) => state.app.time;
 export default appSlice.reducer;

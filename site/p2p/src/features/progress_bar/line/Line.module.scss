@@ -12,6 +12,10 @@ $border-radius: 3px;
   border-radius: $border-radius;
   position: relative;
   background-color: colors.$block-bg;
+
+  @media screen and (max-width: 350px) {
+    width: 0.7 * $width;
+  }
 }
 
 .front, .frontActive {

@@ -1,0 +1,13 @@
+@use "src/colors";
+@use "src/sizes";
+
+.cont {
+  font-size: sizes.$fs-xlarge;
+  color: colors.$black;
+  font-weight: 600;
+
+  & b {
+    text-wrap: nowrap;
+    white-space: nowrap;
+  }
+}

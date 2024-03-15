@@ -1,0 +1,16 @@
+@use "src/colors";
+@use "src/sizes";
+
+.cont {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+
+  &>* {
+    margin-bottom: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}

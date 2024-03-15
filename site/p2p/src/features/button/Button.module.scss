@@ -1,0 +1,27 @@
+@use "src/colors";
+@use "src/sizes";
+
+.purple, .transp {
+  padding: 10px 15px;
+  border-radius: sizes.$border-radius;
+  font-size: 0.8 * sizes.$fs-large;
+  font-weight: 600;
+  user-select: none;
+  cursor: pointer;
+  transition: 0.2s all;
+  box-shadow: 0 0 0 0 rgba(2,2,3,.07);
+
+  &:hover {
+    box-shadow: 0 0 23px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+.purple {
+  background-color: colors.$purpule;
+  color: colors.$block-bg;
+}
+
+.transp {
+  background-color: colors.$bg;
+  color: colors.$img-color-disactive;
+}

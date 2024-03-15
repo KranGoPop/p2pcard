@@ -1,0 +1,32 @@
+@use "src/colors";
+@use "src/sizes";
+
+.cont {
+  width: 100%;
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  background-color: colors.$block-bg;
+  border-radius: sizes.$border-radius;
+}
+
+.spinner {
+  $size: 100px;
+  width: $size;
+  height: $size;
+  border-radius: sizes.$border-radius;
+  background-color: colors.$purpule;
+  transform: rotate(0deg);
+  animation: rot 2s infinite;
+}
+
+@keyframes rot {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
